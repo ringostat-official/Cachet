@@ -5,9 +5,9 @@
 @section('description', trans('cachet.meta.description.subscribe', ['app' => $siteTitle]))
 
 @section('content')
-<div class="pull-right">
+{{--<div class="pull-right">
     <p><a class="btn btn-success btn-outline" href="{{ cachet_route('status-page') }}"><i class="ion ion-home"></i></a></p>
-</div>
+</div>--}}
 
 <div class="clearfix"></div>
 

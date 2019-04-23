@@ -30,6 +30,16 @@
                         <div class="panel-body markdown-body">
                             {!! $incident->formatted_message !!}
                         </div>
+                        @if($incident->show_comment)
+                        <div class="panel-body markdown-body">
+                            {!! $incident->comment !!}
+                        </div>
+                        @endif
+                        @if($incident->show_perpetrator)
+                        <div class="panel-body markdown-body">
+                            {!! $incident->perpetrator->name !!}
+                        </div>
+                        @endif
                         @if($incident->updates->isNotEmpty())
                         <div class="list-group">
                             @foreach($incident->updates as $update)

@@ -137,6 +137,35 @@
                             <label>{{ trans('forms.seo.description') }}</label> <small class="text-muted">{{ trans('forms.optional') }}</small>
                             <input type="text" name="seo[description]" class="form-control" placeholder="{{ trans('forms.optional') }}">
                         </div>
+                        <div class="form-group">
+                             <label>{{ trans('forms.incidents.comment') }}</label><small class="text-muted">{{ trans('forms.optional') }}</small>
+                             <div class="markdown-control">
+                                 <textarea name="comment" class="form-control autosize" rows="5">{{ Binput::old('comment') }}</textarea>
+                             </div>
+                         </div>
+                        <input type="hidden" name="show_comment" value="0">
+                        <div class="checkbox">
+                             <label>
+                                 <input type="checkbox" name="show_comment" value="1" checked="{{ Binput::old('show_comment', 'checked') }}">
+                                 {{ trans('forms.incidents.show_on_site') }}
+                             </label>
+                         </div>
+                        <div class="form-group">
+                            <label>{{ trans('forms.incidents_perpetrator.name_perpetrator') }}</label> <small class="text-muted">{{ trans('forms.optional') }}</small>
+                            <select name="perpetrator_id" class="form-control">
+                                <option value="" selected></option>
+                                @foreach($perpetrators as $perpetrator)
+                                    <option value="{{ $perpetrator->id }}">{{ $perpetrator->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <input type="hidden" name="show_perpetrator" value="0">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="show_perpetrator" value="1" checked="{{ Binput::old('show_perpetrator', 'checked') }}">
+                                {{ trans('forms.incidents.show_on_site') }}
+                            </label>
+                        </div>
                     </fieldset>
 
                     <div class="form-group">

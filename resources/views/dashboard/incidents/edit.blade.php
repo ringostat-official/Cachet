@@ -119,6 +119,34 @@
                         <label>{{ trans('forms.seo.description') }}</label> <small class="text-muted">{{ trans('forms.optional') }}</small>
                         <input type="text" name="seo[description]" class="form-control" value="{{ array_get($incident->meta, 'seo.description', '') }}">
                     </div>
+                    <div class="form-group">
+                        <label>{{ trans('forms.incidents.comment') }}</label><small class="text-muted">{{ trans('forms.optional') }}</small>
+                        <div class="markdown-control">
+                            <textarea name="comment" class="form-control autosize"  rows="5">{{ $incident->comment }}</textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" name="show_comment" value="0">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="show_comment" value="1" {{ $incident->show_comment ? "checked='checked'" : "" }}>
+                            {{ trans('forms.incidents.show_on_site') }}
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>{{ trans('forms.incidents_perpetrator.name_perpetrator') }}</label> <small class="text-muted">{{ trans('forms.optional') }}</small>
+                        <select name="perpetrator_id" class="form-control">
+                            @foreach($perpetrators as  $perpetrator)
+                                <option value="{{ $perpetrator->id }}" {{ $incident->perpetrator_id == $perpetrator->id ? "selected" : "" }}>{{ $perpetrator->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <input type="hidden" name="show_perpetrator" value="0">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="show_perpetrator" value="1" {{ $incident->show_perpetrator ? "checked='checked'" : "" }}>
+                            {{ trans('forms.incidents.show_on_site') }}
+                        </label>
+                    </div>
                 </fieldset>
 
                 <div class="form-group">

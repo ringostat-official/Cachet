@@ -13,6 +13,7 @@ namespace CachetHQ\Cachet\Composers;
 
 use CachetHQ\Cachet\Models\Component;
 use CachetHQ\Cachet\Models\Incident;
+use CachetHQ\Cachet\Models\Perpetrator;
 use CachetHQ\Cachet\Models\IncidentTemplate;
 use CachetHQ\Cachet\Models\Schedule;
 use CachetHQ\Cachet\Models\Subscriber;
@@ -62,6 +63,14 @@ class DashboardComposer
     protected $subscriberCount;
 
     /**
+     * The incident count.
+     *
+     * @var int
+     */
+    protected $perpetratorCount;
+
+
+    /**
      * Create a new dashboard composer instance.
      *
      * @return void
@@ -74,6 +83,10 @@ class DashboardComposer
 
         if (is_null($this->incidentCount)) {
             $this->incidentCount = Incident::count();
+        }
+
+        if (is_null($this->perpetratorCount)) {
+            $this->perpetratorCount = Perpetrator::count();
         }
 
         if (is_null($this->incidentTemplateCount)) {
@@ -103,6 +116,7 @@ class DashboardComposer
         $view->withIncidentTemplateCount($this->incidentTemplateCount);
         $view->withScheduleCount($this->scheduleCount);
         $view->withSubscriberCount($this->subscriberCount);
+        $view->withPerpetratorCount($this->perpetratorCount);
         $view->withIsWriteable(is_writable(app()->bootstrapPath().'/cachet'));
     }
 }

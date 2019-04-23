@@ -20,6 +20,7 @@ use CachetHQ\Cachet\Models\Component;
 use CachetHQ\Cachet\Models\ComponentGroup;
 use CachetHQ\Cachet\Models\Incident;
 use CachetHQ\Cachet\Models\IncidentTemplate;
+use CachetHQ\Cachet\Models\Perpetrator;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Routing\Controller;
@@ -94,7 +95,8 @@ class IncidentController extends Controller
             ->withComponentsInGroups(ComponentGroup::with('components')->get())
             ->withComponentsOutGroups(Component::where('group_id', '=', 0)->get())
             ->withNotificationsEnabled($this->system->canNotifySubscribers())
-            ->withIncidentTemplates(IncidentTemplate::all());
+            ->withIncidentTemplates(IncidentTemplate::all())
+            ->withPerpetrators(Perpetrator::all());
     }
 
     /**
@@ -125,6 +127,10 @@ class IncidentController extends Controller
                 Binput::get('component_id'),
                 Binput::get('component_status'),
                 Binput::get('notify', false),
+                Binput::get('comment', false),
+                Binput::get('perpetrator_id', false),
+                Binput::get('show_perpetrator', false),
+                Binput::get('show_comment', false),
                 Binput::get('stickied', false),
                 Binput::get('occurred_at'),
                 null,
@@ -234,7 +240,8 @@ class IncidentController extends Controller
             ->withIncident($incident)
             ->withComponentsInGroups(ComponentGroup::with('components')->get())
             ->withComponentsOutGroups(Component::where('group_id', '=', 0)->get())
-            ->withNotificationsEnabled($this->system->canNotifySubscribers());
+            ->withNotificationsEnabled($this->system->canNotifySubscribers())
+            ->withPerpetrators(Perpetrator::all());
     }
 
     /**
@@ -256,6 +263,10 @@ class IncidentController extends Controller
                 Binput::get('component_id'),
                 Binput::get('component_status'),
                 Binput::get('notify', true),
+                Binput::get('comment', false),
+                Binput::get('perpetrator_id', false),
+                Binput::get('show_comment', false),
+                Binput::get('show_perpetrator', false),
                 Binput::get('stickied', false),
                 Binput::get('occurred_at'),
                 null,
@@ -287,6 +298,7 @@ class IncidentController extends Controller
     public function editTemplateAction(IncidentTemplate $template)
     {
         try {
+
             $template->update(Binput::get('template'));
         } catch (ValidationException $e) {
             return cachet_redirect('dashboard.templates.edit', ['id' => $template->id])

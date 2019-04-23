@@ -69,6 +69,34 @@ final class CreateIncidentCommand
     public $notify;
 
     /**
+     * Comment.
+     *
+     * @var bool
+     */
+    public $comment;
+
+    /**
+     * Perpetrator.
+     *
+     * @var int
+     */
+    public $perpetrator_id;
+
+    /**
+     * Show comment
+     *
+     * @var int
+     */
+    public $show_comment;
+
+    /**
+     * Show perpetrator
+     *
+     * @var int
+     */
+    public $show_perpetrator;
+
+    /**
      * Whether to stick the incident on top.
      *
      * @var bool
@@ -132,6 +160,10 @@ final class CreateIncidentCommand
      * @param int         $component_id
      * @param int         $component_status
      * @param bool        $notify
+     * @param string      $comment
+     * @param int         $perpetrator_id
+     * @param int         $show_comment
+     * @param int         $show_perpetrator
      * @param bool        $stickied
      * @param string|null $occurred_at
      * @param string|null $template
@@ -140,7 +172,7 @@ final class CreateIncidentCommand
      *
      * @return void
      */
-    public function __construct($name, $status, $message, $visible, $component_id, $component_status, $notify, $stickied, $occurred_at, $template, array $template_vars = [], array $meta = [])
+    public function __construct($name, $status, $message, $visible, $component_id, $component_status, $notify, $comment, $perpetrator_id, $show_comment, $show_perpetrator, $stickied, $occurred_at, $template, array $template_vars = [], array $meta = [])
     {
         $this->name = $name;
         $this->status = $status;
@@ -149,6 +181,10 @@ final class CreateIncidentCommand
         $this->component_id = $component_id;
         $this->component_status = $component_status;
         $this->notify = $notify;
+        $this->comment = $comment;
+        $this->perpetrator_id = $perpetrator_id;
+        $this->show_comment = $show_comment;
+        $this->show_perpetrator = $show_perpetrator;
         $this->stickied = $stickied;
         $this->occurred_at = $occurred_at;
         $this->template = $template;

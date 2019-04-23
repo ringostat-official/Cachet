@@ -118,6 +118,10 @@ class Incident extends Model implements HasPresenter
         'occurred_at',
         'created_at',
         'updated_at',
+        'comment',
+        'perpetrator_id',
+        'show_comment',
+        'show_perpetrator',
     ];
 
     /**
@@ -205,6 +209,15 @@ class Incident extends Model implements HasPresenter
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    /**
+     * Get the perpetrator relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function perpetrator()
+    {
+        return $this->belongsTo(Perpetrator::class);
     }
 
     /**

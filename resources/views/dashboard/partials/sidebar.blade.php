@@ -29,6 +29,13 @@
                     <span class="label label-info">{{ $incidentCount }}</span>
                 </a>
             </li>
+            <li {!! set_active('dashboard/perpetrators*') !!}>
+                <a href="{{ cachet_route('dashboard.perpetrators') }}">
+                    <i class="ion ion-ios-contact"></i>
+                    <span>{{ trans('dashboard.incidents_perpetrator.incidents_perpetrator') }}</span>
+                    <span class="label label-info">{{ $perpetratorCount }}</span>
+                </a>
+            </li>
             <li {!! set_active('dashboard/templates*') !!}>
                 <a href="{{ cachet_route('dashboard.templates') }}">
                     <i class="ion ion-ios-paper-outline"></i>

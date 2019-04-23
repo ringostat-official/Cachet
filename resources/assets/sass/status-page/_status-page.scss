@@ -71,9 +71,9 @@ body.status-page {
         margin-top: 10px;
     }
 
-    .app-banner {
+    /*.app-banner {
         margin-bottom: 30px;
-    }
+    }*/
 
     .about-app {
         margin-bottom: 40px;
@@ -426,5 +426,20 @@ body.status-page {
     //Display inline the incident update message.
     .incident-update-item > p {
         display: inline-block;
+    }
+
+    .app-banner{
+        .links {
+            display: inline-block;
+            width: 50%;
+        }
+    }
+    .app-banner{
+        .banner-image {
+            display: block;
+            max-width: 290px;
+            height: auto;
+            width: 100%;
+        }
     }
 }
