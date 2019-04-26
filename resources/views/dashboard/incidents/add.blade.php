@@ -146,7 +146,7 @@
                         <input type="hidden" name="show_comment" value="0">
                         <div class="checkbox">
                              <label>
-                                 <input type="checkbox" name="show_comment" value="0" checked="{{ Binput::old('show_comment', 'checked') }}">
+                                 <input type="checkbox" name="show_comment" value="1" checked="{{ Binput::old('show_comment') }}">
                                  {{ trans('forms.incidents.show_on_site') }}
                              </label>
                          </div>
@@ -162,7 +162,7 @@
                         <input type="hidden" name="show_perpetrator" value="0">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="show_perpetrator" value="0" checked="{{ Binput::old('show_perpetrator', 'checked') }}">
+                                <input type="checkbox" name="show_perpetrator" value="1" checked="{{ Binput::old('show_perpetrator') }}">
                                 {{ trans('forms.incidents.show_on_site') }}
                             </label>
                         </div>
