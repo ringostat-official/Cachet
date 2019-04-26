@@ -78,6 +78,10 @@ class CreateIncidentCommandHandler
             'status'   => $command->status,
             'visible'  => $command->visible,
             'stickied' => $command->stickied,
+            'comment'  => $command->comment,
+            'perpetrator_id'  => $command->perpetrator_id,
+            'show_comment'  => $command->show_comment,
+            'show_perpetrator'  => $command->show_perpetrator
         ];
 
         if ($template = IncidentTemplate::where('slug', '=', $command->template)->first()) {
