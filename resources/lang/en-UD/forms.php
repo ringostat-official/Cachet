@@ -82,6 +82,11 @@ return [
         ],
     ],
 
+    'incidents_perpetrator' => [
+        'name'               => 'name',
+        'name_perpetrator'   => 'Perpetrator of incident',
+    ],
+
     // Components form fields
     'components' => [
         'name'        => 'crwdns1148:0crwdne1148:0',

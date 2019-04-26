@@ -72,6 +72,33 @@ return [
         ],
     ],
 
+    'incidents_perpetrator' => [
+        'title'                    => 'Perpetrators of incidents',
+        'incidents_perpetrator'    => 'Perpetrator of incident',
+        'logged'                   => '{0} No incidents!|You have <strong>:count</strong> incident.|You have <strong>:count</strong> incidents.',
+        'incident-create-template' => 'Create Template',
+        'incident-templates'       => 'Perpetrators Templates',
+        'updates'                  => '{0} Zero Updates|One Update|:count Updates',
+        'add'                      => [
+            'title'   => 'Add Perpetrator of incident',
+            'success' => 'Perpetrator of incident was added.',
+            'failure' => 'Error while adding Perpetrator of incident.',
+        ],
+        'edit' => [
+            'title'   => 'Edit Perpetrator of incident',
+            'success' => 'Perpetrator of incident was updated.',
+            'failure' => 'Error while updating Perpetrator of incident.',
+        ],
+        'delete' => [
+            'success' => 'Perpetrator of incident was deleted',
+            'failure' => 'Error while deleting Perpetrator of incident',
+        ],
+        'update' => [
+            'title'    => 'Create new incident update',
+            'subtitle' => 'Add update to <strong>:incident</strong>',
+        ],
+    ],
+
     // Incident Maintenance
     'schedule' => [
         'schedule'     => 'Maintenance',
