@@ -133,6 +133,7 @@ class UpdateIncidentCommandHandler
             'component_id'     => $command->component_id,
             'component_status' => $command->component_status,
             'notify'           => $command->notify,
+            'comment'          => $command->comment,
             'perpetrator_id'   => $command->perpetrator_id,
             'show_comment'     => $command->show_comment,
             'show_perpetrator' => $command->show_perpetrator
