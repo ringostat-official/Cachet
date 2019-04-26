@@ -51,6 +51,8 @@ return [
         'component'          => 'Component',
         'component_status'   => 'Component Status',
         'message'            => 'Message',
+        'comment'            => 'Internal Comment',
+        'show_on_site'       => 'Show on Site',
         'message-help'       => 'You may also use Markdown.',
         'occurred_at'        => 'When did this incident occur?',
         'notify_subscribers' => 'Notify subscribers?',
