@@ -128,7 +128,7 @@
                     <input type="hidden" name="show_comment" value="0">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="show_comment" value="0" {{ $incident->show_comment ? "checked='checked'" : "" }}>
+                            <input type="checkbox" name="show_comment" value="1" {{ $incident->show_comment ? "checked='checked'" : "" }}>
                             {{ trans('forms.incidents.show_on_site') }}
                         </label>
                     </div>
@@ -143,7 +143,7 @@
                     <input type="hidden" name="show_perpetrator" value="0">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="show_perpetrator" value="0" {{ $incident->show_perpetrator ? "checked='checked'" : "" }}>
+                            <input type="checkbox" name="show_perpetrator" value="1" {{ $incident->show_perpetrator ? "checked='checked'" : "" }}>
                             {{ trans('forms.incidents.show_on_site') }}
                         </label>
                     </div>
