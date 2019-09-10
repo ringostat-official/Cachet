@@ -24,6 +24,7 @@
 
     <meta name="msapplication-TileColor" content="{{ $themeGreens }}" />
     <meta name="msapplication-TileImage" content="{{ asset('/img/favicon.png') }}" />
+    <meta name="robots" content="noindex">
 
     <link href="{{ Request::fullUrl() }}" rel="canonical">
 
