@@ -106,8 +106,8 @@ class User extends Authenticatable implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'username' => ['required', 'regex:/\A(?!.*[:;]-\))[ -~]+\z/', 'unique:users'],
-        'email'    => 'required|email|unique:users',
+        'username' => ['required', 'regex:/\A(?!.*[:;]-\))[ -~]+\z/'],
+        'email'    => 'required|email',
         'password' => 'required',
     ];
 
